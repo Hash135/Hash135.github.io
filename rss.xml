@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title></title>
+        <link>https://hash135.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://hash135.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Mon, 03 Jan 2022 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>Basics of Git</title>
+            <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
+            <link>https://hash135.github.io/posts/git-basics/</link>
+            <guid>https://hash135.github.io/posts/git-basics/</guid>
+            <description>&lt;h1 id=&quot;setting-up-git&quot;&gt;SETTING UP GIT&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h2&gt;
+&lt;p&gt;GitHub is a service that allows you to upload your code using Git and to manage your code with a nice web interface. GitHub and Git are not the same thing or even the same company.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;step-1-install-git&quot;&gt;Step 1: Install Git&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;step-1-1-update-the-system&quot;&gt;Step 1.1: Update the system&lt;&#x2F;h4&gt;
+&lt;p&gt;Run these commands in the terminal to update the Linux system:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo apt update&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo apt upgrade&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h4 id=&quot;step-1-2-install-git&quot;&gt;Step 1.2: Install git&lt;&#x2F;h4&gt;
+&lt;p&gt;It’s likely you have git installed already, but to make sure that we have the &lt;&#x2F;p&gt;
+&lt;p&gt;most up to date version of git, run the following commands:&lt;&#x2F;p&gt;
+&lt;p&gt;sudo add-apt-repository ppa:git-core&#x2F;ppa&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo apt update&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo apt install git&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h4 id=&quot;step-1-3-verify-version&quot;&gt;Step 1.3: Verify version&lt;&#x2F;h4&gt;
+&lt;p&gt;Make sure your git version is at least 2.28 by running this command:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git --version&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;If the version number is less than 2.28, follow the instructions again.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;step-2-configure-git-and-github&quot;&gt;Step 2: Configure Git and GitHub&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;step-2-1-setup-git&quot;&gt;Step 2.1: Setup Git&lt;&#x2F;h4&gt;
+&lt;p&gt;For Git to work properly, we need to let it know who we are so that it can link a local Git user (you) to GitHub. When working on a team, this allows people to see what you have committed and who committed each line of code.&lt;&#x2F;p&gt;
+&lt;p&gt;The commands below will configure Git. Be sure to enter your own information inside the quotes (but include the quotation marks)!&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git config --global user.name &amp;quot;Your Name&amp;quot;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git config --global user.email &amp;quot;yourname@example.com&amp;quot;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;GitHub recently changed the default branch on new repositories from master to main, change the default branch for Git using this command:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git config --global init.defaultBranch main&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;To enable colorful output with git, type&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git config --global color.ui auto&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;To verify things are working properly, enter these commands and verify that the output matches your name and email address.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git config --get user.name&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git config --get user.email&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h4 id=&quot;step-2-2-create-a-github-account-or-sign-in&quot;&gt;Step 2.2: Create a GitHub Account or Sign In&lt;&#x2F;h4&gt;
+&lt;p&gt;Go to GitHub.com and create an account! If you already have an account, sign in. You do not need to use the same email address you used before, but it might be a good idea to use the same one to keep things simple.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;step-2-3-create-an-ssh-key&quot;&gt;Step 2.3: Create an SSH Key&lt;&#x2F;h4&gt;
+&lt;p&gt;An SSH key is a cryptographically secure identifier. It’s like a really long password used to identify your machine. GitHub uses SSH keys to allow you to upload to your repository without having to type in your username and password every time.&lt;&#x2F;p&gt;
+&lt;p&gt;First, we need to see if you have an SSH key already installed. Type this into the terminal:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ls ~&#x2F;.ssh&#x2F;id_rsa.pub&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;If a message appears in the console containing the text “No such file or directory”, then you do not yet have an SSH key, and you will need to create one. If no message has appeared in the console output, you already have a key and can proceed to step 2.4.&lt;&#x2F;p&gt;
+&lt;p&gt;To create a new SSH key, run the following command inside your terminal. The -C flag followed by your email address ensures that GitHub knows who you are.&lt;&#x2F;p&gt;
+&lt;p&gt;Note: The angle brackets (&amp;lt; &amp;gt;) in the code snippet below indicate that you should replace that part of the command with the appropriate information. Do not include the brackets themselves in your command. For example, if your email address is odin@theodinproject.com, then you would type ssh-keygen -C odin@theodinproject.com. You will see this convention of using angle brackets to indicate placeholder text used throughout The Odin Project’s curriculum and other coding websites, so it’s good to be familiar with what it means.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh-keygen -C &lt;youremail&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;When it prompts you for a location to save the generated key, just push Enter.
+Next, it will ask you for a password; enter one if you wish, but it’s not required.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;step-2-4-link-your-ssh-key-with-github&quot;&gt;Step 2.4: Link Your SSH Key with GitHub&lt;&#x2F;h4&gt;
+&lt;p&gt;Now, you need to tell GitHub what your SSH key is so that you can push your code without typing in a password every time.&lt;&#x2F;p&gt;
+&lt;p&gt;First, you’ll navigate to where GitHub receives our SSH key. Log into GitHub and click on your profile picture in the top right corner. Then, click on Settings in the drop-down menu.&lt;&#x2F;p&gt;
+&lt;p&gt;Next, on the left-hand side, click SSH and GPG keys. Then, click the green button in the top right corner that says New SSH Key. Name your key something that is descriptive enough for you to remember where it came from. Leave this window open while you do the next steps.&lt;&#x2F;p&gt;
+&lt;p&gt;Now you need to copy your public SSH key. To do this, we’re going to use a command called cat to read the file to the console. (Note that the .pub file extension is important in this case.)&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cat ~&#x2F;.ssh&#x2F;id_rsa.pub&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Highlight and copy the output, which starts with ssh-rsa and ends with your email address.&lt;&#x2F;p&gt;
+&lt;p&gt;Now, go back to GitHub in your browser window and paste the key you copied into the key field. Then, click Add SSH key. You’re done! You’ve successfully added your SSH key!&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;step-2-5-testing-your-key&quot;&gt;Step 2.5 Testing your key&lt;&#x2F;h4&gt;
+&lt;p&gt;When you test your connection, you&#x27;ll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. For more information on working with SSH key passphrases, see &amp;quot;Working with SSH key passphrases&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;Open Terminal.&lt;&#x2F;p&gt;
+&lt;p&gt;Enter the following:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh -T git@github.com&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Attempts to ssh to GitHub&lt;&#x2F;p&gt;
+&lt;p&gt;You may see a warning like this:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The authenticity of host &#x27;github.com (IP ADDRESS)&#x27; can&#x27;t be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes&#x2F;no)?
+Verify that the fingerprint in the message you see matches GitHub&#x27;s RSA public key fingerprint. If it does, then type yes:&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hi username! You&#x27;ve successfully authenticated, but GitHub does not
+provide shell access.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;You may see this error message:&lt;&#x2F;p&gt;
+&lt;p&gt;...
+Agent admitted failure to sign using the key.
+debug1: No more authentication methods to try.
+Permission denied (publickey).
+This is a known problem with certain Linux distributions. For more information, see &amp;quot;Error: Agent admitted failure to sign&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;Verify that the resulting message contains your username. If you receive a &amp;quot;permission denied&amp;quot; message, see &amp;quot;Error: Permission denied (publickey)&amp;quot;. That means you have done something wrong.&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>First Post</title>
+            <pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate>
+            <link>https://hash135.github.io/posts/firstpost/</link>
+            <guid>https://hash135.github.io/posts/firstpost/</guid>
+            <description></description>
+        </item>
+    </channel>
+</rss>
